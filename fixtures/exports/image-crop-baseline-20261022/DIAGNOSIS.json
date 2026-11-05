@@ -1,0 +1,37 @@
+{
+  "node_evidence": {
+    "path": "Path A — source bytes complete, display cropped",
+    "slide": 8,
+    "picture_name": "F2P_IMG_58:631",
+    "media": "ppt/media/image-8-1.jpeg",
+    "jpeg_pixels": [
+      1920,
+      3384
+    ],
+    "jpeg_sha256": "29adbf49c7d74245f7c161b98467ee53e5dfab949ea825b20fd23a2ed8b510b2",
+    "placement_pt": {
+      "x": 219.0,
+      "y": 233.0,
+      "w": 369.0,
+      "h": 615.0
+    },
+    "broken_srcRect": {
+      "l": 0,
+      "r": 80781,
+      "t": 0,
+      "b": 80825
+    },
+    "visible_area_fraction": 0.0369,
+    "visible_px_approx": [
+      369,
+      649
+    ],
+    "symptom": "Only top-left logo on red; full form exists in JPEG",
+    "root_cause_hypothesis": "cropSrcRect treated imageTransform as pixel-space (0..boxW) instead of unit-space (0..1)"
+  },
+  "landscape_regression": {
+    "slide": 3,
+    "media": "ppt/media/image-3-2.png",
+    "note": "Right-side landscape hero must remain intact after fix"
+  }
+}

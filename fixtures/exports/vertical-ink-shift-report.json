@@ -1,0 +1,143 @@
+{
+  "generatedAt": "2026-10-20T13:19:37.443Z",
+  "units": {
+    "note": "Frame 1920×1080 → scale=1: 1 Figma px = 1 PPT pt = 12700 EMU",
+    "page": "1920×1080 pt",
+    "fontSz": "OOXML sz = pt × 100 (hundredths of a point)",
+    "spcPts": "OOXML Exact = pt × 100"
+  },
+  "source": {
+    "kind": "real PPTX OOXML geometry/fonts/text",
+    "file": "fixtures/exports/Figma_Export.pptx",
+    "leadingTrim": "NOT present in PPTX — unknown until IR diagnostic from Figma"
+  },
+  "targets": {
+    "A": {
+      "nodeId": "29:247",
+      "slide": 2,
+      "objectName": "F2P_TXT_29:247",
+      "text": "弨慥螎，漉璡漉峪玵鎩坠孰鑡穹娫痱娻纄蛏宆寯囥娆嚫嘀嘋？",
+      "boxPxPt": {
+        "w": 918,
+        "h": 72,
+        "x": 285,
+        "y": 420
+      },
+      "font": "PingFang SC",
+      "szHalfPt": 3400,
+      "spcPts": 7200,
+      "rows": 1,
+      "bodyPrBaseline": "anchor=t insets=0 noAutofit"
+    },
+    "B": {
+      "nodeId": "29:269",
+      "slide": 2,
+      "objectName": "F2P_TXT_29:269",
+      "text": "为了收集…真实经历…",
+      "boxPxPt": {
+        "w": 738,
+        "h": 72,
+        "x": 972,
+        "y": 159
+      },
+      "font": "SF Pro",
+      "szHalfPt": 1800,
+      "spcPts": 3600,
+      "rows": 2,
+      "bodyPrBaseline": "anchor=t insets=0 noAutofit wrap=none br=1",
+      "emu": {
+        "cx": 9372600,
+        "cy": 914400
+      }
+    }
+  },
+  "screenshotMeasurement": {
+    "file": "assets/image-57b38db6 (Research PPT screenshot ~1024×575)",
+    "A_topGapPtApprox": 37.6,
+    "B_topGapPtApprox": 20.7,
+    "model": "Exact+TOP natural top gap ≈ lineHeight − fontSize for gated cases",
+    "capHeightStatus": "hypothesis — not proven from PPTX alone"
+  },
+  "before": {
+    "path": "fixtures/exports/vertical-ink-shift-before.pptx",
+    "mode": "off",
+    "bodyPr": {
+      "A": "<a:bodyPr lIns=\"0\" tIns=\"0\" rIns=\"0\" bIns=\"0\" rtlCol=\"0\" anchor=\"t\" wrap=\"square\">",
+      "B": "<a:bodyPr lIns=\"0\" tIns=\"0\" rIns=\"0\" bIns=\"0\" rtlCol=\"0\" anchor=\"t\" wrap=\"square\">"
+    },
+    "shifts": [
+      {
+        "id": "29:247",
+        "shift": null
+      },
+      {
+        "id": "29:269",
+        "shift": null
+      }
+    ]
+  },
+  "afterFlushGate": {
+    "path": "fixtures/exports/vertical-ink-shift-after.pptx",
+    "mode": "auto + flush sourceRenderBounds",
+    "bodyPr": {
+      "A": "<a:bodyPr lIns=\"0\" rIns=\"0\" rtlCol=\"0\" anchor=\"t\" wrap=\"square\" tIns=\"-482600\" bIns=\"482600\">",
+      "B": "<a:bodyPr lIns=\"0\" rIns=\"0\" rtlCol=\"0\" anchor=\"t\" wrap=\"square\" tIns=\"-228600\" bIns=\"228600\">"
+    },
+    "shifts": [
+      {
+        "id": "29:247",
+        "shift": {
+          "shiftUpPt": 38,
+          "tInsPt": -38,
+          "bInsPt": 38,
+          "gate": "renderBounds-flush-top",
+          "reason": "TOP Exact ink-shift via flush sourceRenderBounds; shiftUp=38pt (tIns/bIns opposite)"
+        }
+      },
+      {
+        "id": "29:269",
+        "shift": {
+          "shiftUpPt": 18,
+          "tInsPt": -18,
+          "bInsPt": 18,
+          "gate": "renderBounds-flush-top",
+          "reason": "TOP Exact ink-shift via flush sourceRenderBounds; shiftUp=18pt (tIns/bIns opposite)"
+        }
+      }
+    ]
+  },
+  "afterCapHeightGate": {
+    "note": "Separate candidate using fixture leadingTrim=CAP_HEIGHT (not from live node)",
+    "bodyPr": {
+      "A": "<a:bodyPr lIns=\"0\" rIns=\"0\" rtlCol=\"0\" anchor=\"t\" wrap=\"square\" tIns=\"-482600\" bIns=\"482600\">",
+      "B": "<a:bodyPr lIns=\"0\" rIns=\"0\" rtlCol=\"0\" anchor=\"t\" wrap=\"square\" tIns=\"-228600\" bIns=\"228600\">"
+    },
+    "shifts": [
+      {
+        "id": "29:247",
+        "shift": {
+          "shiftUpPt": 38,
+          "tInsPt": -38,
+          "bInsPt": 38,
+          "gate": "leadingTrim-CAP_HEIGHT",
+          "reason": "TOP Exact ink-shift via CAP_HEIGHT gate; shiftUp=38pt (tIns/bIns opposite)"
+        }
+      },
+      {
+        "id": "29:269",
+        "shift": {
+          "shiftUpPt": 18,
+          "tInsPt": -18,
+          "bInsPt": 18,
+          "gate": "leadingTrim-CAP_HEIGHT",
+          "reason": "TOP Exact ink-shift via CAP_HEIGHT gate; shiftUp=18pt (tIns/bIns opposite)"
+        }
+      }
+    ]
+  },
+  "visualVerification": {
+    "status": "PENDING",
+    "requiredClient": "Microsoft PowerPoint for Mac (record version when checking)",
+    "note": "XML/structure pass ≠ pixel match. Open before/after PPTX and compare ink vs box top."
+  }
+}

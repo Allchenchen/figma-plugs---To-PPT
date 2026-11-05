@@ -1,0 +1,29 @@
+{
+  "name": "figma-to-ppt",
+  "version": "1.0.0",
+  "description": "Export Figma frames to editable PowerPoint (.pptx), fully local.",
+  "main": "dist/code.js",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "watch": "node scripts/build.mjs --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "visual:text": "tsx scripts/text-visual-report.ts"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "jszip": "^3.10.2",
+    "pptxgenjs": "^4.0.1"
+  },
+  "devDependencies": {
+    "@figma/plugin-typings": "*",
+    "@types/pngjs": "^6.0.5",
+    "esbuild": "^0.24.0",
+    "pngjs": "^7.0.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.8"
+  }
+}

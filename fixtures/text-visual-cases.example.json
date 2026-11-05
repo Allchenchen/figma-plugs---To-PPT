@@ -1,0 +1,12 @@
+[
+  {
+    "id": "large-english-auto-top",
+    "figmaRegion": { "x": 0, "y": 0, "width": 1920, "height": 1080 },
+    "pptRegion": { "x": 0, "y": 0, "width": 1920, "height": 1080 },
+    "figmaTextBox": { "x": 195, "y": 105, "width": 796, "height": 167 },
+    "pptTextBox": { "x": 195, "y": 105, "width": 796, "height": 167 },
+    "figmaBaselines": [240],
+    "pptBaselines": [240],
+    "foreground": "light"
+  }
+]

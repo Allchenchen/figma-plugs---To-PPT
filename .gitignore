@@ -1,0 +1,20 @@
+# Node
+*.log
+*.log.*
+node_modules
+.DS_Store
+
+out/
+dist/
+
+# Local comparison decks and audit extracts. Not used by the plugin build or tests.
+.tmp-*/
+.ref-scratch/
+fixtures/exports/**/*.pptx
+fixtures/exports/**/*.png
+fixtures/exports/**/*.jpg
+fixtures/exports/**/*.jpeg
+fixtures/exports/**/*.bmp
+fixtures/exports/**/*.ppm
+fixtures/exports/**/*.gif
+fixtures/exports/**/*.webp

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>To PPT</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 380px;
+      height: 552px;
+      overflow: hidden;
+      background: #FFFCF9;
+      color: #333;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", "Segoe UI", sans-serif;
+      font-weight: 400;
+      font-synthesis: none;
+      -webkit-font-smoothing: antialiased;
+      padding: 20px 24px 0;
+    }
+
+    h1 {
+      font-size: 18px;
+      font-weight: 510;
+      line-height: 20px;
+      color: #333;
+      margin-bottom: 14px;
+    }
+
+    .chip-box {
+      position: relative;
+      height: 184px;
+      border: 1px solid #D2BAA4;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .empty {
+      padding: 22px 16px 16px;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 16px;
+      color: #666;
+    }
+
+    .chips {
+      height: 152px;
+      margin: 16px 16px 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      gap: 8px;
+      overflow-y: hidden;
+      scrollbar-width: none;
+    }
+
+    .chips.is-overflow {
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+
+    .chips.fade-bottom {
+      -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - 28px), transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - 28px), transparent 100%);
+    }
+
+    .chips.fade-top {
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 28px, #000 100%);
+      mask-image: linear-gradient(to bottom, transparent 0, #000 28px, #000 100%);
+    }
+
+    .chips.fade-top.fade-bottom {
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%);
+    }
+
+    .chips::-webkit-scrollbar { width: 0; height: 0; }
+
+    .chip-scroll {
+      position: absolute;
+      top: 40px;
+      right: 6px;
+      width: 2px;
+      height: 50px;
+      border-radius: 100px;
+      background: #D2BAA4;
+      pointer-events: none;
+    }
+
+    .chip-scroll[hidden] { display: none; }
+
+    .chip {
+      height: 36px;
+      padding: 0 20px;
+      border-radius: 100px;
+      background: #EDE3D9;
+      color: #4F4F4F;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 36px;
+      white-space: nowrap;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 510;
+      line-height: 20px;
+      color: #333;
+      margin-bottom: 14px;
+    }
+
+    .modes {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .mode {
+      position: relative;
+      width: 160px;
+      height: 60px;
+      border: 1px solid #D2BAA4;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .mode input {
+      position: absolute;
+      opacity: 0;
+      inset: 0;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    .mode svg { width: 16px; height: 16px; display: block; flex: none; }
+    .mode .radio-on { display: none; }
+    .mode:has(input:checked) .radio-on { display: block; }
+    .mode:has(input:checked) .radio-off { display: none; }
+
+    .mode-label { font-size: 13px; font-weight: 400; line-height: 16px; color: #666; }
+    .mode:has(input:checked) .mode-label { color: #333; }
+
+    .hint {
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 16px;
+      color: #828282;
+    }
+
+    .hint + .hint { margin-top: 4px; }
+
+    #export {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 332px;
+      height: 60px;
+      margin-top: 32px;
+      border: none;
+      border-radius: 100px;
+      background: #ED4832;
+      color: #fff;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 510;
+      line-height: 19px;
+      cursor: pointer;
+    }
+
+    #export:disabled { cursor: not-allowed; }
+
+    .status {
+      margin-top: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: #333;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 13px;
+    }
+
+    .status svg { width: 16px; height: 16px; display: block; flex: none; }
+    .status svg[hidden] { display: none; }
+    .status[hidden] { display: none; }
+
+    .status .icon-exporting {
+      width: 16px;
+      height: 16px;
+      display: block;
+      flex: none;
+      transform-origin: center;
+      will-change: transform;
+      animation: exporting-spin 2.5s linear infinite;
+    }
+
+    .status .icon-exporting[hidden] { display: none; }
+
+    @keyframes exporting-spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .status .icon-exporting { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <h1 id="selection-title">0 frames selected</h1>
+
+  <div class="chip-box">
+    <p id="empty" class="empty">Please select at least one frame.</p>
+    <div id="chips" class="chips" hidden></div>
+    <div id="chip-scroll" class="chip-scroll" hidden></div>
+  </div>
+
+  <h2>Export mode</h2>
+  <div class="modes">
+    <label class="mode">
+      <input type="radio" name="strategy" value="editable" checked />
+      <svg class="radio-on" preserveAspectRatio="none" overflow="visible" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8Z" fill="#ED4832" stroke="#ED4832"/>
+        <circle cx="8" cy="8" r="3.33333" fill="white"/>
+      </svg>
+      <svg class="radio-off" preserveAspectRatio="none" overflow="visible" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z" stroke-width="2" stroke="#D2BAA4"/>
+      </svg>
+      <span class="mode-label">Editable PPT</span>
+    </label>
+    <label class="mode">
+      <input type="radio" name="strategy" value="fidelity" />
+      <svg class="radio-on" preserveAspectRatio="none" overflow="visible" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8Z" fill="#ED4832" stroke="#ED4832"/>
+        <circle cx="8" cy="8" r="3.33333" fill="white"/>
+      </svg>
+      <svg class="radio-off" preserveAspectRatio="none" overflow="visible" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z" stroke-width="2" stroke="#D2BAA4"/>
+      </svg>
+      <span class="mode-label">Image-based PPT</span>
+    </label>
+  </div>
+
+  <p class="hint">* Editable PPT: Keep text, shapes, and images editable.</p>
+  <p class="hint">* Image-based PPT: Each frame becomes a full-slide 2× PNG.</p>
+
+  <input type="hidden" name="size" value="frame" />
+
+  <button id="export" type="button" disabled>Export to PowerPoint</button>
+
+  <p id="status" class="status" hidden>
+    <span class="icon icon-exporting" aria-hidden="true">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7.99678 4.12114C7.84631 4.12114 7.71518 4.06525 7.60341 3.95348C7.49163 3.8417 7.43574 3.70843 7.43574 3.55366V1.56748C7.43574 1.41271 7.49163 1.27944 7.60341 1.16766C7.71518 1.05589 7.84631 1 7.99678 1C8.15154 1 8.28481 1.05589 8.39659 1.16766C8.50837 1.27944 8.56426 1.41271 8.56426 1.56748V3.55366C8.56426 3.70843 8.50837 3.8417 8.39659 3.95348C8.28481 4.06525 8.15154 4.12114 7.99678 4.12114ZM10.7439 5.2561C10.6364 5.14863 10.5827 5.01535 10.5827 4.85629C10.5827 4.69722 10.6364 4.56395 10.7439 4.45647L12.1561 3.05712C12.2636 2.94964 12.3947 2.8959 12.5495 2.8959C12.7086 2.8959 12.8419 2.94964 12.9493 3.05712C13.0568 3.16459 13.1105 3.29787 13.1105 3.45693C13.1105 3.6117 13.0568 3.74282 12.9493 3.8503L11.5435 5.2561C11.4361 5.36358 11.3028 5.41732 11.1437 5.41732C10.9846 5.41732 10.8514 5.36358 10.7439 5.2561ZM11.8853 8.00322C11.8853 7.84846 11.9412 7.71733 12.053 7.60986C12.1647 7.49808 12.2959 7.44219 12.4463 7.44219H14.4325C14.5873 7.44219 14.7206 7.49808 14.8323 7.60986C14.9441 7.71733 15 7.84846 15 8.00322C15 8.15369 14.9441 8.28481 14.8323 8.39659C14.7206 8.50837 14.5873 8.56426 14.4325 8.56426H12.4463C12.2959 8.56426 12.1647 8.50837 12.053 8.39659C11.9412 8.28481 11.8853 8.15369 11.8853 8.00322ZM10.7439 10.7439C10.8514 10.6364 10.9846 10.5827 11.1437 10.5827C11.3028 10.5827 11.4361 10.6364 11.5435 10.7439L12.9493 12.1561C13.0568 12.2636 13.1105 12.3969 13.1105 12.556C13.1105 12.7107 13.0568 12.8419 12.9493 12.9493C12.8419 13.0568 12.7086 13.1105 12.5495 13.1105C12.3947 13.1105 12.2636 13.0568 12.1561 12.9493L10.7439 11.5435C10.6364 11.4361 10.5827 11.3028 10.5827 11.1437C10.5827 10.9846 10.6364 10.8514 10.7439 10.7439ZM7.99678 11.8853C8.15154 11.8853 8.28481 11.9412 8.39659 12.053C8.50837 12.1647 8.56426 12.2959 8.56426 12.4463V14.439C8.56426 14.5894 8.50837 14.7206 8.39659 14.8323C8.28481 14.9441 8.15154 15 7.99678 15C7.84631 15 7.71518 14.9441 7.60341 14.8323C7.49163 14.7206 7.43574 14.5894 7.43574 14.439V12.4463C7.43574 12.2959 7.49163 12.1647 7.60341 12.053C7.71518 11.9412 7.84631 11.8853 7.99678 11.8853ZM5.2561 10.7439C5.36358 10.8514 5.41732 10.9846 5.41732 11.1437C5.41732 11.3028 5.36358 11.4361 5.2561 11.5435L3.84385 12.9493C3.73637 13.0568 3.6031 13.1105 3.44404 13.1105C3.28927 13.1105 3.15815 13.0568 3.05067 12.9493C2.94319 12.8419 2.88945 12.7107 2.88945 12.556C2.88945 12.3969 2.94319 12.2636 3.05067 12.1561L4.45647 10.7439C4.56395 10.6364 4.69722 10.5827 4.85629 10.5827C5.01535 10.5827 5.14863 10.6364 5.2561 10.7439ZM4.11469 8.00322C4.11469 8.15369 4.05881 8.28481 3.94703 8.39659C3.83525 8.50837 3.70413 8.56426 3.55366 8.56426H1.56103C1.41056 8.56426 1.27944 8.50837 1.16766 8.39659C1.05589 8.28481 1 8.15369 1 8.00322C1 7.84846 1.05589 7.71733 1.16766 7.60986C1.27944 7.49808 1.41056 7.44219 1.56103 7.44219H3.55366C3.70413 7.44219 3.83525 7.49808 3.94703 7.60986C4.05881 7.71733 4.11469 7.84846 4.11469 8.00322ZM5.2561 5.2561C5.14863 5.36358 5.01535 5.41732 4.85629 5.41732C4.69722 5.41732 4.56395 5.36358 4.45647 5.2561L3.05067 3.8503C2.94319 3.74282 2.88945 3.6117 2.88945 3.45693C2.88945 3.29787 2.94319 3.16459 3.05067 3.05712C3.15815 2.94964 3.28927 2.8959 3.44404 2.8959C3.6031 2.8959 3.73637 2.94964 3.84385 3.05712L5.2561 4.45647C5.36358 4.56395 5.41732 4.69722 5.41732 4.85629C5.41732 5.01535 5.36358 5.14863 5.2561 5.2561Z" fill="#333333"/>
+    </svg>
+    </span>
+    <svg class="icon icon-success" hidden preserveAspectRatio="none" overflow="visible" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M6.45703 13.6826C6.18815 13.6826 5.95117 13.5505 5.74609 13.2861L2.19824 8.76758C2.12988 8.68555 2.07975 8.60352 2.04785 8.52148C2.01595 8.4349 2 8.35059 2 8.26855C2 8.08171 2.06152 7.92904 2.18457 7.81055C2.30762 7.6875 2.46484 7.62598 2.65625 7.62598C2.88411 7.62598 3.08008 7.73763 3.24414 7.96094L6.42969 12.1309L12.5684 2.34863C12.6504 2.22103 12.7347 2.13216 12.8213 2.08203C12.9079 2.02734 13.0195 2 13.1562 2C13.3431 2 13.4935 2.05697 13.6074 2.1709C13.7214 2.28483 13.7783 2.43522 13.7783 2.62207C13.7783 2.7041 13.7646 2.78613 13.7373 2.86816C13.71 2.94564 13.6667 3.03223 13.6074 3.12793L7.14746 13.2998C6.97884 13.555 6.7487 13.6826 6.45703 13.6826Z" fill="#333333"/>
+    </svg>
+    <svg class="icon icon-failed" hidden preserveAspectRatio="none" overflow="visible" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M4.04776 11.9209C3.97029 11.9984 3.87686 12.0508 3.76749 12.0781C3.66267 12.1055 3.55785 12.1055 3.45304 12.0781C3.34822 12.0508 3.25707 11.9984 3.1796 11.9209C3.09757 11.8434 3.04288 11.7523 3.01554 11.6475C2.99275 11.5381 2.99503 11.431 3.02237 11.3262C3.04972 11.2214 3.10212 11.1302 3.1796 11.0527L11.0546 3.17773C11.1321 3.10026 11.2232 3.04785 11.328 3.02051C11.4329 2.99316 11.5377 2.99316 11.6425 3.02051C11.7473 3.04785 11.8385 3.10026 11.9159 3.17773C11.998 3.25521 12.0504 3.34863 12.0732 3.45801C12.1005 3.56283 12.1005 3.66764 12.0732 3.77246C12.0504 3.87728 11.998 3.96842 11.9159 4.0459L4.04776 11.9209ZM3.1796 4.0459C3.10212 3.96842 3.04972 3.87728 3.02237 3.77246C2.99503 3.66764 2.99275 3.56283 3.01554 3.45801C3.04288 3.34863 3.09757 3.25521 3.1796 3.17773C3.25707 3.10026 3.34822 3.04785 3.45304 3.02051C3.55785 2.99316 3.66267 2.99316 3.76749 3.02051C3.87686 3.04785 3.97029 3.10026 4.04776 3.17773L11.9159 11.0527C11.998 11.1302 12.0504 11.2214 12.0732 11.3262C12.1005 11.431 12.1005 11.5381 12.0732 11.6475C12.0504 11.7523 11.998 11.8434 11.9159 11.9209C11.8385 11.9984 11.7473 12.0508 11.6425 12.0781C11.5377 12.1055 11.4329 12.1055 11.328 12.0781C11.2232 12.0508 11.1321 11.9984 11.0546 11.9209L3.1796 4.0459Z" fill="#333333"/>
+    </svg>
+    <span id="status-text"></span>
+  </p>
+
+  <!-- UI_BUNDLE -->
+</body>
+</html>

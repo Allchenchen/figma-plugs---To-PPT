@@ -1,0 +1,60 @@
+{
+  "structure": {
+    "path": "Path C — PPTX media complete; opaque shape occludes footer",
+    "slide": 6,
+    "images": [
+      {
+        "name": "F2P_IMG_58:541",
+        "media": "ppt/media/image-6-3.jpeg",
+        "px": [
+          983,
+          4096
+        ]
+      },
+      {
+        "name": "F2P_IMG_58:542",
+        "media": "ppt/media/image-6-4.png",
+        "px": [
+          983,
+          4096
+        ],
+        "sha16": "1baea85fc66c8cfb"
+      }
+    ],
+    "occluder": {
+      "name": "Shape 5",
+      "fill": "#322A2B",
+      "place_pt": [
+        1454,
+        998,
+        230,
+        21
+      ],
+      "z_order": "after both phone images",
+      "covers_footer_bright_pixels_pct": 100
+    },
+    "first_error_stage": "D/PPT display — Shape 5 painted above complete screenshot; media A/B/C intact"
+  },
+  "fix": {
+    "file": "src/ir/image-cover-strips.ts",
+    "function": "dropImageEdgeCoverShapes",
+    "wired_from": "src/reader/reader.ts readSlide",
+    "rule": "Drop solid no-stroke rect edge strips (≤5% span, flush top/bottom, higher zIndex) that sit on images"
+  },
+  "candidate_pptx": "fixtures/exports/footer-cover-strip-fix-candidate.pptx",
+  "baseline_dir": "fixtures/exports/footer-baseline-20261023",
+  "unchanged": [
+    "text wrap",
+    "font/size/leading",
+    "DPI",
+    "page scale",
+    "FILL/FIT/CROP math",
+    "left notebook images"
+  ],
+  "manual_verify": [
+    "Re-import dist/ plugin and re-export",
+    "Slide 6 phone footer: Helvyn logo, 慥螎嘭廽/行嘚寑摕/麐臁洿荖, copyright, WeChat/Weibo icons visible",
+    "Left notebook / browser chrome on slide 6 unchanged",
+    "No intentional thin footer overlays removed incorrectly"
+  ]
+}

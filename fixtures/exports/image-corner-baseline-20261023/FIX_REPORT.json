@@ -1,0 +1,19 @@
+{
+  "root_cause": "tryReadImageFill emitted IRImage without RectangleNode cornerRadii → PPT pic stayed prst=rect",
+  "lost_at": "src/reader/reader.ts tryReadImageFill (before converter)",
+  "fix": {
+    "reader": "attach cornerRadii/cornerSmoothing/cornerSource from node",
+    "ir": "IRImage.cornerRadii optional",
+    "converter": "objectName marker when corners present",
+    "ooxml": "imageCornerGeometryXml → prstGeom roundRect or custGeom",
+    "postprocess": "injectGeometry by F2P_IMG_{id} marker"
+  },
+  "not_in_scope_this_pass": [
+    "Parent Frame clipsContent rounding applied to child images",
+    "Exact Figma cornerSmoothing squircle (custGeom is quadratic approx)",
+    "Surgical candidate radii are illustrative for slide11; real export needs plugin re-run"
+  ],
+  "tests": "full suite + new roundRect/custGeom image integration tests",
+  "candidate_pptx": "fixtures/exports/image-corner-radius-fix-candidate.pptx",
+  "slide11_geom_replacements": 5
+}

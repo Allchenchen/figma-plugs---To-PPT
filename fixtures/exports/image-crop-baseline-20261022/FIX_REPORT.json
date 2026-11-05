@@ -1,0 +1,45 @@
+{
+  "fix": {
+    "file": "src/reader/image.ts",
+    "function": "cropSrcRect",
+    "change": "Interpret ImagePaint.imageTransform in normalized unit space (container→image), not Figma px"
+  },
+  "node": {
+    "ppt_picture": "F2P_IMG_58:631",
+    "media": "ppt/media/image-8-1.jpeg",
+    "structure": "Path A — RECTANGLE ImagePaint CROP (single bitmap screenshot of registration page)",
+    "source_pixels": [
+      1920,
+      3384
+    ],
+    "placement_pt": [
+      219,
+      233,
+      369,
+      615
+    ]
+  },
+  "srcRect_before": {
+    "l": 0,
+    "r": 80781,
+    "t": 0,
+    "b": 80825,
+    "visible_area": 0.0369
+  },
+  "srcRect_after_identity_unit": {
+    "l": 0,
+    "r": 0,
+    "t": 0,
+    "b": 0,
+    "visible_area": 1.0
+  },
+  "candidate_pptx": "fixtures/exports/form-image-crop-fix-candidate.pptx",
+  "baseline_dir": "fixtures/exports/image-crop-baseline-20261022",
+  "landscape_regression": "slide3 / image-3-2 untouched in candidate; FILL/FIT paths unchanged in code",
+  "manual_verify": [
+    "Re-import plugin (dist/) in Figma and re-export the original frames",
+    "Open form-image-crop-fix-candidate.pptx slide 8: phone mockup should show full form page (title/animals/fields), not logo-only",
+    "Confirm right-side landscape shortlist / hero slides still match prior export",
+    "Intentional CROP windows (non-identity) still crop correctly"
+  ]
+}

@@ -1,0 +1,263 @@
+{
+  "generatedAt": "2026-10-19T10:06:11.185Z",
+  "meta": [
+    {
+      "id": "A",
+      "label": "Exact 30pt / two paragraphs (current export path)",
+      "boxPx": {
+        "w": 748,
+        "h": 80
+      },
+      "boxIn": {
+        "w": 7.791666666666667,
+        "h": 0.8333333333333334
+      },
+      "fontSizePt": 15,
+      "mode": "exact-pt",
+      "value": 30,
+      "structure": "two-paragraphs",
+      "editableNative": true,
+      "needsHumanVisualCheck": true
+    },
+    {
+      "id": "B",
+      "label": "Exact 39pt / two paragraphs (manual lookalike)",
+      "boxPx": {
+        "w": 748,
+        "h": 80
+      },
+      "boxIn": {
+        "w": 7.791666666666667,
+        "h": 0.8333333333333334
+      },
+      "fontSizePt": 15,
+      "mode": "exact-pt",
+      "value": 39,
+      "structure": "two-paragraphs",
+      "editableNative": true,
+      "needsHumanVisualCheck": true
+    },
+    {
+      "id": "C",
+      "label": "Multiple 1.4 / two paragraphs (manual lookalike)",
+      "boxPx": {
+        "w": 748,
+        "h": 80
+      },
+      "boxIn": {
+        "w": 7.791666666666667,
+        "h": 0.8333333333333334
+      },
+      "fontSizePt": 15,
+      "mode": "multiple",
+      "value": 1.4,
+      "structure": "two-paragraphs",
+      "editableNative": true,
+      "needsHumanVisualCheck": true
+    },
+    {
+      "id": "D",
+      "label": "Multiple 2.0 / two paragraphs (40px/20px ratio)",
+      "boxPx": {
+        "w": 748,
+        "h": 80
+      },
+      "boxIn": {
+        "w": 7.791666666666667,
+        "h": 0.8333333333333334
+      },
+      "fontSizePt": 15,
+      "mode": "multiple",
+      "value": 2,
+      "structure": "two-paragraphs",
+      "editableNative": true,
+      "needsHumanVisualCheck": true
+    },
+    {
+      "id": "E",
+      "label": "Exact 30pt / one para with soft break",
+      "boxPx": {
+        "w": 748,
+        "h": 80
+      },
+      "boxIn": {
+        "w": 7.791666666666667,
+        "h": 0.8333333333333334
+      },
+      "fontSizePt": 15,
+      "mode": "exact-pt",
+      "value": 30,
+      "structure": "one-paragraph-break",
+      "editableNative": true,
+      "needsHumanVisualCheck": true
+    },
+    {
+      "id": "F",
+      "label": "Exact 30pt / single line only",
+      "boxPx": {
+        "w": 748,
+        "h": 80
+      },
+      "boxIn": {
+        "w": 7.791666666666667,
+        "h": 0.8333333333333334
+      },
+      "fontSizePt": 15,
+      "mode": "exact-pt",
+      "value": 30,
+      "structure": "two-paragraphs",
+      "editableNative": true,
+      "needsHumanVisualCheck": true
+    }
+  ],
+  "audit": [
+    {
+      "slide": 1,
+      "objectName": "DIAG_A",
+      "bodyPr": "wrap=\"square\" lIns=\"0\" tIns=\"0\" rIns=\"0\" bIns=\"0\" rtlCol=\"0\" anchor=\"ctr\"",
+      "paragraphCount": 3,
+      "charCount": 88,
+      "texts": [
+        "A. Exact 30pt / two paragraphs (current export path)",
+        "慥螎谥頠纄愚奃、嬅掹嘔澁奷嘓嘚暦纄箯悃琛廴，",
+        "港尸朕睜弨堙頉嚺纄漀瀸柃廠蔠"
+      ],
+      "fontSizeHalfPt": "1400",
+      "lnSpc": [
+        "<a:spcPts val=\"3000\"/>",
+        "<a:spcPts val=\"3000\"/>"
+      ],
+      "autofit": {
+        "spAutoFit": false,
+        "normAutofit": false,
+        "noAutofit": false
+      },
+      "xfrmHintEmu": {
+        "expectedCy": 762000
+      }
+    },
+    {
+      "slide": 2,
+      "objectName": "DIAG_B",
+      "bodyPr": "wrap=\"square\" lIns=\"0\" tIns=\"0\" rIns=\"0\" bIns=\"0\" rtlCol=\"0\" anchor=\"ctr\"",
+      "paragraphCount": 3,
+      "charCount": 85,
+      "texts": [
+        "B. Exact 39pt / two paragraphs (manual lookalike)",
+        "慥螎谥頠纄愚奃、嬅掹嘔澁奷嘓嘚暦纄箯悃琛廴，",
+        "港尸朕睜弨堙頉嚺纄漀瀸柃廠蔠"
+      ],
+      "fontSizeHalfPt": "1400",
+      "lnSpc": [
+        "<a:spcPts val=\"3900\"/>",
+        "<a:spcPts val=\"3900\"/>"
+      ],
+      "autofit": {
+        "spAutoFit": false,
+        "normAutofit": false,
+        "noAutofit": false
+      },
+      "xfrmHintEmu": {
+        "expectedCy": 762000
+      }
+    },
+    {
+      "slide": 3,
+      "objectName": "DIAG_C",
+      "bodyPr": "wrap=\"square\" lIns=\"0\" tIns=\"0\" rIns=\"0\" bIns=\"0\" rtlCol=\"0\" anchor=\"ctr\"",
+      "paragraphCount": 3,
+      "charCount": 87,
+      "texts": [
+        "C. Multiple 1.4 / two paragraphs (manual lookalike)",
+        "慥螎谥頠纄愚奃、嬅掹嘔澁奷嘓嘚暦纄箯悃琛廴，",
+        "港尸朕睜弨堙頉嚺纄漀瀸柃廠蔠"
+      ],
+      "fontSizeHalfPt": "1400",
+      "lnSpc": [
+        "<a:spcPct val=\"140000\"/>",
+        "<a:spcPct val=\"140000\"/>"
+      ],
+      "autofit": {
+        "spAutoFit": false,
+        "normAutofit": false,
+        "noAutofit": false
+      },
+      "xfrmHintEmu": {
+        "expectedCy": 762000
+      }
+    },
+    {
+      "slide": 4,
+      "objectName": "DIAG_D",
+      "bodyPr": "wrap=\"square\" lIns=\"0\" tIns=\"0\" rIns=\"0\" bIns=\"0\" rtlCol=\"0\" anchor=\"ctr\"",
+      "paragraphCount": 3,
+      "charCount": 86,
+      "texts": [
+        "D. Multiple 2.0 / two paragraphs (40px/20px ratio)",
+        "慥螎谥頠纄愚奃、嬅掹嘔澁奷嘓嘚暦纄箯悃琛廴，",
+        "港尸朕睜弨堙頉嚺纄漀瀸柃廠蔠"
+      ],
+      "fontSizeHalfPt": "1400",
+      "lnSpc": [
+        "<a:spcPct val=\"200000\"/>",
+        "<a:spcPct val=\"200000\"/>"
+      ],
+      "autofit": {
+        "spAutoFit": false,
+        "normAutofit": false,
+        "noAutofit": false
+      },
+      "xfrmHintEmu": {
+        "expectedCy": 762000
+      }
+    },
+    {
+      "slide": 5,
+      "objectName": "DIAG_E",
+      "bodyPr": "wrap=\"square\" lIns=\"0\" tIns=\"0\" rIns=\"0\" bIns=\"0\" rtlCol=\"0\" anchor=\"ctr\"",
+      "paragraphCount": 3,
+      "charCount": 76,
+      "texts": [
+        "E. Exact 30pt / one para with soft break",
+        "慥螎谥頠纄愚奃、嬅掹嘔澁奷嘓嘚暦纄箯悃琛廴，",
+        "港尸朕睜弨堙頉嚺纄漀瀸柃廠蔠"
+      ],
+      "fontSizeHalfPt": "1400",
+      "lnSpc": [
+        "<a:spcPts val=\"3000\"/>",
+        "<a:spcPts val=\"3000\"/>"
+      ],
+      "autofit": {
+        "spAutoFit": false,
+        "normAutofit": false,
+        "noAutofit": false
+      },
+      "xfrmHintEmu": {
+        "expectedCy": 762000
+      }
+    },
+    {
+      "slide": 6,
+      "objectName": "DIAG_F",
+      "bodyPr": "wrap=\"square\" lIns=\"0\" tIns=\"0\" rIns=\"0\" bIns=\"0\" rtlCol=\"0\" anchor=\"ctr\"",
+      "paragraphCount": 2,
+      "charCount": 54,
+      "texts": [
+        "F. Exact 30pt / single line only",
+        "慥螎谥頠纄愚奃、嬅掹嘔澁奷嘓嘚暦纄箯悃琛廴，"
+      ],
+      "fontSizeHalfPt": "1400",
+      "lnSpc": [
+        "<a:spcPts val=\"3000\"/>"
+      ],
+      "autofit": {
+        "spAutoFit": false,
+        "normAutofit": false,
+        "noAutofit": false
+      },
+      "xfrmHintEmu": {
+        "expectedCy": 762000
+      }
+    }
+  ]
+}
